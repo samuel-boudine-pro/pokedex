@@ -1,4 +1,12 @@
-function NavBar({ pokemonIndex, setPokemonIndex , pokemonListLength}) {
+import PropTypes from "prop-types";
+
+NavBar.propTypes = {
+  pokemonIndex: PropTypes.number.isRequired,
+  setPokemonIndex: PropTypes.func.isRequired,
+  pokemonListLength: PropTypes.number.isRequired,
+};
+
+function NavBar({ pokemonIndex, setPokemonIndex, pokemonListLength }) {
   const handleClickDecrementIndex = () => {
     setPokemonIndex(pokemonIndex - 1);
   };
@@ -12,7 +20,7 @@ function NavBar({ pokemonIndex, setPokemonIndex , pokemonListLength}) {
       ) : (
         ""
       )}
-      {pokemonIndex < pokemonListLength -1 ? (
+      {pokemonIndex < pokemonListLength - 1 ? (
         <button onClick={handleClickIncrementIndex}>Suivant</button>
       ) : (
         ""
