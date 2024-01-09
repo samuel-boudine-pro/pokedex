@@ -10,6 +10,9 @@ import React from 'react';
 function NavBar({ setPokemonIndex, pokemonList }) {
   const handleClick = (pokemonIndex) => {
     setPokemonIndex(pokemonIndex);
+    if (pokemonList[pokemonIndex].name === 'pikachu') {
+        alert("pika pikachu !!!")
+    }
   };
   console.log(pokemonList);
   return (
