@@ -1,31 +1,27 @@
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
-NavBar.propTypes = {
-  pokemonIndex: PropTypes.number.isRequired,
-  setPokemonIndex: PropTypes.func.isRequired,
-  pokemonListLength: PropTypes.number.isRequired,
-};
+// NavBar.propTypes = {
+//   pokemonIndex: PropTypes.number.isRequired,
+//   setPokemonIndex: PropTypes.func.isRequired,
+//   pokemonListLength: PropTypes.number.isRequired,
+// };
 
-function NavBar({ pokemonIndex, setPokemonIndex, pokemonListLength }) {
-  const handleClickDecrementIndex = () => {
-    setPokemonIndex(pokemonIndex - 1);
+// eslint-disable-next-line react/prop-types
+function NavBar({ setPokemonIndex, pokemonList }) {
+  const handleClick = (pokemonIndex) => {
+    setPokemonIndex(pokemonIndex);
   };
-  const handleClickIncrementIndex = () => {
-    setPokemonIndex(pokemonIndex + 1);
-  };
+  console.log(pokemonList);
   return (
-    <div>
-      {pokemonIndex > 0 ? (
-        <button onClick={handleClickDecrementIndex}>Précedent</button>
-      ) : (
-        ""
-      )}
-      {pokemonIndex < pokemonListLength - 1 ? (
-        <button onClick={handleClickIncrementIndex}>Suivant</button>
-      ) : (
-        ""
-      )}
-    </div>
+    <ul>
+      {pokemonList.map((pokemon, pokemonIndex) => (
+        <li key={pokemon.name}>
+          <button onClick={() => handleClick(pokemonIndex)}>
+            {pokemon.name}
+          </button>
+        </li>
+      ))}
+    </ul>
   );
 }
 
